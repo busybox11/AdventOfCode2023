@@ -146,27 +146,6 @@ const splittedInput = input.split("\n");
 const nb = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 const notSymbols = [...nb, ".", " ", undefined, "", "\n"];
 
-function detectNumberHasAdjacentSymbol(i: number, j: number) {
-  // Create a list of adjacent symbols.
-  // If the specified coordinates of the input str
-  // are out of range, treat them as empty.
-  // This should also work diagonally.
-  const adjacentSymbols = [
-    splittedInput[i - 1]?.[j] ?? "",
-    splittedInput[i + 1]?.[j] ?? "",
-    splittedInput[i]?.[j - 1] ?? "",
-    splittedInput[i]?.[j + 1] ?? "",
-    splittedInput[i - 1]?.[j - 1] ?? "",
-    splittedInput[i - 1]?.[j + 1] ?? "",
-    splittedInput[i + 1]?.[j - 1] ?? "",
-    splittedInput[i + 1]?.[j + 1] ?? "",
-  ];
-
-  // Return exact amount of adjacent symbols.
-  return adjacentSymbols.filter((symbol) => !notSymbols.includes(symbol))
-    .length;
-}
-
 function detectNumberInitialPosition(i: number, j: number) {
   let y = j;
 
